@@ -1,5 +1,6 @@
-﻿using System.Collections;
-
+﻿using System.Collections; //programa que permita visualizar los departamentos de Nicaragua con
+//su cantidad poblacional
+//Encuentre: Mayor, menor, sumas y ordene los datos
 
 Dictionary<string, int> dep = new()
 {
@@ -23,12 +24,13 @@ Dictionary<string, int> dep = new()
 };
 
 var orderDepResult = dep.OrderBy(d => d.Value);
+//Encontrar el menor
 var menDep = dep.Select(d => d).Where(d => d.Value == dep.Values.ToArray().Min());
 Console.WriteLine("Departamento con menor Población:");
 
 foreach (var order in menDep)
     Console.WriteLine($"{order.Key,20} ==> {order.Value,10:N0}");
-
+//Encontrar el departamento con mayor población
 Console.WriteLine("Departamento con mayor Población:");
 foreach (var item in orderDepResult)
     Console.WriteLine($"{item.Key,20} ==> {item.Value,10:N0}");
