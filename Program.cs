@@ -23,7 +23,7 @@ Dictionary<string, int> dep = new()
     {"Rivas",182645}
 };
 //Ordenando con diccionario y Orderby de LINQ
-var orderDepResult = dep.OrderBy(d => d.Value);
+var orderDepResult = dep.OrderBy(d => d.Value); 
 //Encontrar el menor
 var menDep = dep.Select(d => d).Where(d => d.Value == dep.Values.ToArray().Min());
 Console.WriteLine("Departamento con menor Población:");
@@ -37,7 +37,7 @@ foreach (var item in orderDepResult)
 int total = orderDepResult.ToDictionary(kvp => kvp.Key, kvp => kvp.Value).Values.ToArray().Sum();
 
 Console.WriteLine($"Población General:{total,17:N0}");
-
+//mostrar los tres departamentos con mayor población
 var tresMayores = orderDepResult.TakeLast(3);
 Console.WriteLine($"Los tres departemento con mayor población son:");
 tresMayores = tresMayores.OrderByDescending(d => d.Value);
